@@ -27,6 +27,8 @@ func main() {
 		return
 	}
 
+	bookService.CreateTable()
+
 	router := http.NewServeMux()
 	router.HandleFunc("GET /books", bookHandlers.GetBooks)
 	router.HandleFunc("POST /books", bookHandlers.CreateBook)

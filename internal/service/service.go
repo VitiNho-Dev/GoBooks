@@ -3,6 +3,7 @@ package service
 import (
 	"database/sql"
 	"fmt"
+	"log"
 	"time"
 )
 
@@ -19,6 +20,20 @@ type BookService struct {
 
 func NewBookService(db *sql.DB) *BookService {
 	return &BookService{db: db}
+}
+
+func (s *BookService) CreateTable() {
+	query := `CREATE TABLE IF NOT EXISTS books ( 
+				id INTEGER PRIMARY KEY AUTOINCREMENT, 
+				title TEXT NOT NULL, author TEXT NOT NULL, 
+				genre TEXT NOT NULL 
+			);`
+	_, err := s.db.Exec(query)
+	if err != nil {
+		log.Fatalf("Failed to create table: %v", err)
+	}
+
+	log.Println("Database and table created successfully")
 }
 
 func (s *BookService) CreateBook(book *Book) error {

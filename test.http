@@ -7,7 +7,7 @@ POST http://localhost:8080/books
 Accept: application/json
 
 {
-    "title": "Dart",
+    "title": "A Linguagem GO",
     "author": "Google",
     "genre": "Software Engineer"
 }
@@ -21,7 +21,7 @@ PUT http://localhost:8080/books/2
 Accept: application/json
 
 {
-    "title": "Clean Code",
+    "title": "A Linguagem GO",
     "author": "Robert C. Martin",
     "genre": "Software Development"
 }
